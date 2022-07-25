@@ -21,9 +21,11 @@ import com.alibaba.nacos.common.JustForTest;
 import com.alibaba.nacos.sys.file.FileChangeEvent;
 import com.alibaba.nacos.sys.file.FileWatcher;
 import com.alibaba.nacos.sys.file.WatchFileCenter;
+import com.taobao.diamond.utils.EncryptionUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.env.OriginTrackedMapPropertySource;
 import org.springframework.boot.env.PropertySourceLoader;
+import org.springframework.boot.origin.OriginTrackedValue;
 import org.springframework.core.env.PropertySource;
 import org.springframework.core.io.Resource;
 
@@ -44,6 +46,8 @@ public class NacosAutoRefreshPropertySourceLoader implements PropertySourceLoade
     private final Map<String, Object> properties = new ConcurrentHashMap<>(16);
     
     private Resource holder = null;
+
+    private static final String PASSWORD_KEY = "db.password";
     
     @Override
     public String[] getFileExtensions() {
@@ -55,6 +59,13 @@ public class NacosAutoRefreshPropertySourceLoader implements PropertySourceLoade
         holder = resource;
         Map<String, ?> tmp = loadProperties(resource);
         properties.putAll(tmp);
+
+        Object password = properties.get(PASSWORD_KEY);
+        if (password != null && password instanceof OriginTrackedValue) {
+            String realPassword = null;
+            realPassword = EncryptionUtil.decodeContent((String) ((OriginTrackedValue) password).getValue());
+            properties.put(PASSWORD_KEY, realPassword);
+        }
         
         try {
             WatchFileCenter.registerWatcher(EnvUtil.getConfPath(), new FileWatcher() {

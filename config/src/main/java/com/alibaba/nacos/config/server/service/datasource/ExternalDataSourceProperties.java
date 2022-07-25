@@ -14,6 +14,7 @@
 package com.alibaba.nacos.config.server.service.datasource;
 
 import com.google.common.base.Preconditions;
+import com.taobao.diamond.utils.EncryptionUtil;
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.boot.context.properties.bind.Bindable;
@@ -74,6 +75,9 @@ public class ExternalDataSourceProperties {
         Preconditions.checkArgument(Objects.nonNull(num), "db.num is null");
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(user), "db.user or db.user.[index] is null");
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(password), "db.password or db.password.[index] is null");
+        for (int i = 0; i < password.size(); i++) {
+            password.set(i, EncryptionUtil.decodeContent(password.get(i)));
+        }
         for (int index = 0; index < num; index++) {
             int currentSize = index + 1;
             Preconditions.checkArgument(url.size() >= currentSize, "db.url.%s is null", index);
