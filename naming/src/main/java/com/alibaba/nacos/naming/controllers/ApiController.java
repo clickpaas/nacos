@@ -27,10 +27,10 @@ import com.alibaba.nacos.naming.core.ServiceManager;
 import com.alibaba.nacos.naming.misc.UtilsAndCommons;
 import com.alibaba.nacos.naming.push.ClientInfo;
 import com.alibaba.nacos.naming.web.CanDistro;
+import com.fasterxml.jackson.core.util.VersionUtil;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.codehaus.jackson.util.VersionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -78,7 +78,7 @@ public class ApiController extends InstanceController {
         String agent = WebUtils.getUserAgent(request);
         ClientInfo clientInfo = new ClientInfo(agent);
         if (clientInfo.type == ClientInfo.ClientType.DNS
-                && clientInfo.version.compareTo(VersionUtil.parseVersion(dnsfVersion)) <= 0) {
+                && clientInfo.version.compareTo(VersionUtil.parseVersion(dnsfVersion, null, null)) <= 0) {
             
             List<String> doms = new ArrayList<String>();
             Set<String> domSet = null;

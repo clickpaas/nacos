@@ -24,9 +24,9 @@ import com.alibaba.nacos.naming.misc.Loggers;
 import com.alibaba.nacos.naming.misc.SwitchDomain;
 import com.alibaba.nacos.naming.misc.UtilsAndCommons;
 import com.alibaba.nacos.naming.pojo.Subscriber;
+import com.fasterxml.jackson.core.util.VersionUtil;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.codehaus.jackson.util.VersionUtil;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -395,19 +395,19 @@ public class PushService implements ApplicationContextAware, ApplicationListener
         ClientInfo clientInfo = new ClientInfo(agent);
         
         if (ClientInfo.ClientType.JAVA == clientInfo.type
-                && clientInfo.version.compareTo(VersionUtil.parseVersion(switchDomain.getPushJavaVersion())) >= 0) {
+                && clientInfo.version.compareTo(VersionUtil.parseVersion(switchDomain.getPushJavaVersion(), null, null)) >= 0) {
             return true;
         } else if (ClientInfo.ClientType.DNS == clientInfo.type
-                && clientInfo.version.compareTo(VersionUtil.parseVersion(switchDomain.getPushPythonVersion())) >= 0) {
+                && clientInfo.version.compareTo(VersionUtil.parseVersion(switchDomain.getPushPythonVersion(), null, null)) >= 0) {
             return true;
         } else if (ClientInfo.ClientType.C == clientInfo.type
-                && clientInfo.version.compareTo(VersionUtil.parseVersion(switchDomain.getPushCVersion())) >= 0) {
+                && clientInfo.version.compareTo(VersionUtil.parseVersion(switchDomain.getPushCVersion(), null, null)) >= 0) {
             return true;
         } else if (ClientInfo.ClientType.GO == clientInfo.type
-                && clientInfo.version.compareTo(VersionUtil.parseVersion(switchDomain.getPushGoVersion())) >= 0) {
+                && clientInfo.version.compareTo(VersionUtil.parseVersion(switchDomain.getPushGoVersion(), null, null)) >= 0) {
             return true;
         } else if (ClientInfo.ClientType.CSHARP == clientInfo.type
-                && clientInfo.version.compareTo(VersionUtil.parseVersion(switchDomain.getPushCSharpVersion())) >= 0) {
+                && clientInfo.version.compareTo(VersionUtil.parseVersion(switchDomain.getPushCSharpVersion(), null, null)) >= 0) {
             return true;
         }
         

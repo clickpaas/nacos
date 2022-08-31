@@ -17,9 +17,9 @@
 package com.alibaba.nacos.naming.push;
 
 import com.alibaba.nacos.naming.misc.UtilsAndCommons;
+import com.fasterxml.jackson.core.Version;
+import com.fasterxml.jackson.core.util.VersionUtil;
 import org.apache.commons.lang3.StringUtils;
-import org.codehaus.jackson.Version;
-import org.codehaus.jackson.util.VersionUtil;
 
 /**
  * Client info.
@@ -39,7 +39,7 @@ public class ClientInfo {
             type = ClientType.JAVA;
             
             versionStr = versionStr.substring(versionStr.indexOf(":v") + 2, versionStr.length());
-            version = VersionUtil.parseVersion(versionStr);
+            version = VersionUtil.parseVersion(versionStr, null, null);
             
             return;
         }
@@ -48,7 +48,7 @@ public class ClientInfo {
             type = ClientType.DNS;
             
             versionStr = versionStr.substring(versionStr.indexOf(":v") + 2, versionStr.length());
-            version = VersionUtil.parseVersion(versionStr);
+            version = VersionUtil.parseVersion(versionStr, null, null);
             
             return;
         }
@@ -57,7 +57,7 @@ public class ClientInfo {
             type = ClientType.C;
             
             versionStr = versionStr.substring(versionStr.indexOf(":v") + 2, versionStr.length());
-            version = VersionUtil.parseVersion(versionStr);
+            version = VersionUtil.parseVersion(versionStr, null, null);
             
             return;
         }
@@ -66,7 +66,7 @@ public class ClientInfo {
             type = ClientType.JAVA_SDK;
             
             versionStr = versionStr.substring(versionStr.indexOf(":v") + 2, versionStr.length());
-            version = VersionUtil.parseVersion(versionStr);
+            version = VersionUtil.parseVersion(versionStr, null, null);
             
             return;
         }
@@ -75,7 +75,7 @@ public class ClientInfo {
             type = ClientType.NACOS_SERVER;
             
             versionStr = versionStr.substring(versionStr.indexOf(":v") + 2, versionStr.length());
-            version = VersionUtil.parseVersion(versionStr);
+            version = VersionUtil.parseVersion(versionStr, null, null);
             
             return;
         }
@@ -84,7 +84,7 @@ public class ClientInfo {
             type = ClientType.TENGINE;
             
             versionStr = versionStr.substring(versionStr.indexOf(":v") + 2, versionStr.length());
-            version = VersionUtil.parseVersion(versionStr);
+            version = VersionUtil.parseVersion(versionStr, null, null);
             
             return;
         }
@@ -93,7 +93,7 @@ public class ClientInfo {
             type = ClientType.C;
             
             versionStr = versionStr.substring(versionStr.indexOf(":v") + 2, versionStr.length());
-            version = VersionUtil.parseVersion(versionStr);
+            version = VersionUtil.parseVersion(versionStr, null, null);
             
             return;
         }
@@ -102,7 +102,7 @@ public class ClientInfo {
             type = ClientType.GO;
             
             versionStr = versionStr.substring(versionStr.indexOf(":v") + 2, versionStr.length());
-            version = VersionUtil.parseVersion(versionStr);
+            version = VersionUtil.parseVersion(versionStr, null, null);
             
             return;
         }
@@ -111,7 +111,7 @@ public class ClientInfo {
             type = ClientType.CSHARP;
 
             versionStr = versionStr.substring(versionStr.indexOf(":v") + 2, versionStr.length());
-            version = VersionUtil.parseVersion(versionStr);
+            version = VersionUtil.parseVersion(versionStr, null, null);
 
             return;
         }
