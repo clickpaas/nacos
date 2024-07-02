@@ -1,5 +1,5 @@
 all: build
-image=registry.bizsaas.net/devops/nacos-server:2.2.3-SNAPSHOT
+image=registry.bizsaas.net/devops/nacos-server:2.2.3-fix1-SNAPSHOT
 push:
 	docker buildx build --pull --platform linux/amd64,linux/arm64 -t $(image) . --push
 inspect:
