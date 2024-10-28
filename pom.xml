@@ -88,7 +88,7 @@
     </issueManagement>
     
     <properties>
-        <revision>2.4.3</revision>
+        <revision>2.4.3-SNAPSHOT</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- Compiler settings properties -->
@@ -1069,16 +1069,29 @@
         </dependencies>
     </dependencyManagement>
     
-    <distributionManagement>
+    <!--<distributionManagement>
         <snapshotRepository>
-            <!-- The ID here must be exactly the same as the value
-             of the server element id in the settings.xml file of MAVEN -->
+            &lt;!&ndash; The ID here must be exactly the same as the value
+             of the server element id in the settings.xml file of MAVEN &ndash;&gt;
             <id>sona</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </snapshotRepository>
         <repository>
             <id>sona</id>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>-->
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Snapshots</name>
+            <url>http://maven.successchannel.tech/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>releases</id>
+            <name>Nexus Release Repository</name>
+            <url>http://maven.clickpaas.tech/nexus/content/repositories/releases</url>
         </repository>
     </distributionManagement>
 
