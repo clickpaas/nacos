@@ -1006,6 +1006,11 @@
                 <artifactId>proto-google-common-protos</artifactId>
                 <version>${proto-google-common-protos.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-census</artifactId>
+                <version>1.59.0</version>
+            </dependency>
             <!-- gRPC dependency end -->
             
             <dependency>
