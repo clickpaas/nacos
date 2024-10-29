@@ -114,6 +114,11 @@
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-core</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-census</artifactId>
+        </dependency>
     </dependencies>
     
     <build>
@@ -207,10 +212,10 @@
                                     </relocation>
                                     <relocation>
                                         <pattern>io.grpc.netty.shaded.io.grpc.netty</pattern>
-                                        <shadedPattern>com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.grpc.netty
-                                        </shadedPattern>
+                                        <shadedPattern>com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.grpc.netty</shadedPattern>
                                         <includes>
                                             <include>io.grpc.netty.shaded.io.grpc.netty.*</include>
+                                            <include>io.grpc.netty.shaded.io.netty.*</include>
                                         </includes>
                                     </relocation>
 
