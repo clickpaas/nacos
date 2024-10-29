@@ -215,6 +215,12 @@
                                         <shadedPattern>com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.grpc.netty</shadedPattern>
                                         <includes>
                                             <include>io.grpc.netty.shaded.io.grpc.netty.*</include>
+                                        </includes>
+                                    </relocation>
+                                    <relocation>
+                                        <pattern>io.grpc.netty.shaded.io.netty</pattern>
+                                        <shadedPattern>com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty</shadedPattern>
+                                        <includes>
                                             <include>io.grpc.netty.shaded.io.netty.*</include>
                                         </includes>
                                     </relocation>
