@@ -22,18 +22,14 @@
         <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    
     <modelVersion>4.0.0</modelVersion>
-    
     <artifactId>nacos-client</artifactId>
     <packaging>jar</packaging>
-    
     <name>nacos-client ${project.version}</name>
     <url>https://nacos.io</url>
     <description>Nacos client pom.xml file</description>
     
     <dependencies>
-        
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
