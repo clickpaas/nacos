@@ -29,6 +29,7 @@
             </extension>
         </extensions>
         <plugins>
+
             <!--            Grpc coding plug-in-->
             <plugin>
                 <groupId>org.xolstice.maven.plugins</groupId>
