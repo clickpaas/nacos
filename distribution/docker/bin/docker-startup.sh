@@ -45,7 +45,8 @@ Xmn=$(join_if_exist "-Xmn" ${JVM_XMN})
 XX_MS=$(join_if_exist "-XX:MetaspaceSize=" ${JVM_MS})
 XX_MMS=$(join_if_exist "-XX:MaxMetaspaceSize=" ${JVM_MMS})
 
-JAVA_OPT="${JAVA_OPT} -XX:+UseConcMarkSweepGC -XX:+UseCMSCompactAtFullCollection -XX:CMSInitiatingOccupancyFraction=70 -XX:+CMSParallelRemarkEnabled -XX:SoftRefLRUPolicyMSPerMB=0 -XX:+CMSClassUnloadingEnabled -XX:SurvivorRatio=8 "
+#JAVA_OPT="${JAVA_OPT} -XX:+UseConcMarkSweepGC -XX:+UseCMSCompactAtFullCollection -XX:CMSInitiatingOccupancyFraction=70 -XX:+CMSParallelRemarkEnabled -XX:SoftRefLRUPolicyMSPerMB=0 -XX:+CMSClassUnloadingEnabled -XX:SurvivorRatio=8 "
+JAVA_OPT="${JAVA_OPT} "
 if [[ "${MODE}" == "standalone" ]]; then
   JAVA_OPT="${JAVA_OPT} $Xms $Xmx $Xmn"
   JAVA_OPT="${JAVA_OPT} -Dnacos.standalone=true"
