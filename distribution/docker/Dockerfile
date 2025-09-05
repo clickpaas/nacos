@@ -1,4 +1,5 @@
-FROM registry.bizsaas.net/java:openjdk8-alpine
+#FROM registry.bizsaas.net/java:openjdk8-alpine
+FROM registry.bizsaas.net/java:openjdk17-rocky-cn-skywalking
 #LABEL maintainer="pader <huangmnlove@163.com>"
 
 # set environment
@@ -8,9 +9,9 @@ ENV MODE="cluster" \
     CLASSPATH=".:/home/nacos/conf:$CLASSPATH" \
     CLUSTER_CONF="/home/nacos/conf/cluster.conf" \
     FUNCTION_MODE="all" \
-    JAVA_HOME="/usr/lib/jvm/default-jvm" \
+    JAVA_HOME="/usr/lib/jvm/java-17-openjdk" \
     NACOS_USER="nacos" \
-    JAVA="/usr/lib/jvm/default-jvm/bin/java" \
+    JAVA="/usr/lib/jvm/java-17-openjdk/bin/java" \
     JVM_XMS="1g" \
     JVM_XMX="1g" \
     JVM_XMN="512m" \
@@ -23,7 +24,7 @@ ENV MODE="cluster" \
 #ARG NACOS_VERSION=2.2.3
 #ARG NACOS_VERSION=2.2.3-SNAPSHOT
 #ARG NACOS_VERSION=2.2.3-SNAPSHOT-20240507
-ARG NACOS_VERSION=2.4.3
+ARG NACOS_VERSION=2.4.3-SNAPSHOT
 ARG HOT_FIX_FLAG=""
 
 WORKDIR $BASE_DIR
@@ -32,9 +33,9 @@ WORKDIR $BASE_DIR
 #    && yum update -y \
 #    && yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel iputils nc vim libcurl \
 #    && yum clean all
-RUN sudo apk add --no-cache libc6-compat tini busybox-extras bash curl openssh-client tzdata net-tools \
+#RUN sudo apk add --no-cache libc6-compat tini busybox-extras bash curl openssh-client tzdata net-tools \
     #&& sudo ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2 \
-    && sudo rm -rf /var/cache/apk/*
+##    && sudo rm -rf /var/cache/apk/*
 
 #RUN curl -SL https://file.devops.clickpaas.tech/software/nacos-server-${NACOS_VERSION}.tar.gz -o /home/nacos-server.tar.gz \
 #    && tar -xzvf /home/nacos-server.tar.gz -C /home \

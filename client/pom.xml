@@ -22,18 +22,14 @@
         <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    
     <modelVersion>4.0.0</modelVersion>
-    
     <artifactId>nacos-client</artifactId>
     <packaging>jar</packaging>
-    
     <name>nacos-client ${project.version}</name>
     <url>https://nacos.io</url>
     <description>Nacos client pom.xml file</description>
     
     <dependencies>
-        
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -108,6 +104,11 @@
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-census</artifactId>
         </dependency>
     </dependencies>
     
@@ -202,10 +203,16 @@
                                     </relocation>
                                     <relocation>
                                         <pattern>io.grpc.netty.shaded.io.grpc.netty</pattern>
-                                        <shadedPattern>com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.grpc.netty
-                                        </shadedPattern>
+                                        <shadedPattern>com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.grpc.netty</shadedPattern>
                                         <includes>
                                             <include>io.grpc.netty.shaded.io.grpc.netty.*</include>
+                                        </includes>
+                                    </relocation>
+                                    <relocation>
+                                        <pattern>io.grpc.netty.shaded.io.netty</pattern>
+                                        <shadedPattern>com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty</shadedPattern>
+                                        <includes>
+                                            <include>io.grpc.netty.shaded.io.netty.*</include>
                                         </includes>
                                     </relocation>
 
