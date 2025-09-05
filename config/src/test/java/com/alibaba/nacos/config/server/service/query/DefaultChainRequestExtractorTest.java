@@ -32,7 +32,7 @@ import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import static com.alibaba.nacos.api.common.Constants.VIPSERVER_TAG;
 import static org.junit.jupiter.api.Assertions.assertEquals;

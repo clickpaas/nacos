@@ -65,6 +65,14 @@ public interface NacosApplicationListener {
      */
     default void started(ConfigurableApplicationContext context) {
     }
+
+    /**
+     * {@link com.alibaba.nacos.core.code.SpringApplicationRunListener#ready}.
+     *
+     * @param context context
+     */
+    default void ready(ConfigurableApplicationContext context) {
+    }
     
     /**
      * {@link com.alibaba.nacos.core.code.SpringApplicationRunListener#running}.
