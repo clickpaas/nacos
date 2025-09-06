@@ -295,6 +295,9 @@
                         <goals>
                             <goal>check</goal>
                         </goals>
+                        <configuration>
+                            <excludeFromFailureFile>pmd-ignore.properties</excludeFromFailureFile>
+                        </configuration>
                     </execution>
                 </executions>
                 <dependencies>
@@ -368,6 +371,15 @@
                         <exclude>**/disk_cache_test/**</exclude>
                         <exclude>**/failover_test/**</exclude>
                         <exclude>lefthook.yml</exclude>
+                        <exclude>LICENSE</exclude>
+                        <exclude>resources/copyright</exclude>
+                        <exclude>pom.xml</exclude>
+                        <exclude>style/nacos-code-style-for-idea.xml</exclude>
+                        <exclude>style/NacosCheckStyle_9.xml</exclude>
+                        <exclude>style/NacosCheckStyle.xml</exclude>
+                        <exclude>NOTICE</exclude>
+                        <exclude>pmd-ignore.properties</exclude>
+                        <exclude>BUILDING</exclude>
                     </excludes>
                 </configuration>
                 <executions>
